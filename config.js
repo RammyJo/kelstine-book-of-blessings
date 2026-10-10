@@ -1,7 +1,9 @@
-/* Safe to publish with your site. Use only the Supabase publishable/anon key here.
-   NEVER put a Supabase service_role key or Cloudflare API token in this file. */
+/* Book of Blessings — public browser configuration.
+   The Supabase publishable key is intended for frontend use with RLS enabled.
+   Never put a Supabase secret/service_role key or Cloudflare API token here.
+*/
 window.BLESSINGS_CONFIG = {
-  supabaseUrl: "",
-  supabaseAnonKey: "",
+  supabaseUrl: "https://fceetxfoyuzdvopcmvaa.supabase.co",
+  supabaseAnonKey: "sb_publishable_osD6bOfjy9YGVT1WSbw_Og_gvkEl0w2",
   aiWorkerUrl: ""
 };
