@@ -5,5 +5,5 @@
 window.BLESSINGS_CONFIG = {
   supabaseUrl: "https://fceetxfoyuzdvopcmvaa.supabase.co",
   supabaseAnonKey: "sb_publishable_osD6bOfjy9YGVT1WSbw_Og_gvkEl0w2",
-  aiWorkerUrl: ""
+  aiWorkerUrl: "https://kk-book-of-blessings-ai.ram-a15.workers.dev"
 };
