@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f6f4ef">
+  <meta name="theme-color" content="#f0efec">
   <meta name="description" content="A beautiful place to leave Kelsey and Kristine a blessing they can keep forever.">
   <title>The Book of Blessings — Kelsey & Kristine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,13 +15,288 @@
     @media(max-width:900px){.hero{grid-template-columns:1fr;gap:12px;padding:55px 0 65px}.hero-copy{padding:0}.hero-art{min-height:430px}.hero h1{max-width:750px}.studio{grid-template-columns:1fr}.preview-panel{position:static}.letter-canvas{min-height:500px;aspect-ratio:4/4.2}.archive-list{grid-template-columns:1fr 1fr}}
     @media(max-width:620px){.shell{width:min(100% - 28px,1140px)}.nav{min-height:68px}.nav .nav-link{display:none}.brand-text{font-size:.96rem}.nav .btn{padding:11px 14px;font-size:.76rem;min-height:41px}.hero{padding:45px 0 48px}.hero h1{font-size:clamp(3.1rem,14vw,4.6rem)}.hero-lede{font-size:.95rem}.hero-art{min-height:390px}.paper-letter{min-height:335px;padding:35px 28px;width:min(310px,78%)}.paper-script{font-size:2.5rem}.stamp{width:70px;height:70px;font-size:.85rem;right:1%;bottom:7%}.section{padding:60px 0}.steps{grid-template-columns:1fr}.step-card{min-height:0;padding:24px}.write-section{padding:48px 0 65px}.write-head{display:block}.write-head h2{font-size:3rem}.write-head .btn{margin-top:6px}.form-panel{padding:20px 16px}.mood-grid{grid-template-columns:repeat(2,1fr)}.custom-row{grid-template-columns:1fr}.preview-panel{padding:10px}.letter-canvas{min-height:490px;padding:20px}.canvas-inner{padding:24px 12px}.canvas-title{font-size:2.5rem}.canvas-message{font-size:.92rem;line-height:1.75}.preview-tools{align-items:flex-start;flex-direction:column}.button-row .btn{flex:1}.footer-inner{align-items:flex-start;flex-direction:column}.archive-head{display:block}.archive-head .btn{margin-top:15px}.archive-list{grid-template-columns:1fr}.archive-card .letter-canvas{min-height:420px}.thanks{padding:45px 20px;margin:26px auto 60px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+    /* Soft neutral paper palette + fluid, restrained motion */
+    :root{--ink:#203447;--ink-soft:#566977;--blue:#496d84;--blue-dark:#2e5067;--mist:#dfe5e6;--paper:#f1f0ed;--paper-2:#e7e6e2;--line:#d4d8d7;--white:#f8f7f4;--shadow:0 24px 70px rgba(32,52,71,.10)}
+    body{background:#f1f0ed;color:#203447;transition:background-color .35s ease,color .35s ease}
+    .topbar{background:rgba(241,240,237,.88);border-bottom-color:rgba(196,202,202,.74)}
+    .section-soft{background:#e8e9e6}
+    .step-card,.form-panel,.preview-panel,.modal,.archive-card{background:#f8f7f4;border-color:#d8dcda;box-shadow:0 12px 34px rgba(32,52,71,.045)}
+    .step-card,.mood-card,.form-panel,.preview-panel,.archive-card,.paper-letter{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,border-color .3s ease,background-color .3s ease}
+    .step-card:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(32,52,71,.085);border-color:#c3cece}
+    .form-panel,.preview-panel{background:#f8f7f4}
+    .input,.textarea,.select{background:#f4f3f0;border-color:#d1d7d7;color:#203447;border-radius:9px;transition:border-color .22s ease,box-shadow .22s ease,background-color .22s ease}
+    .input:focus,.textarea:focus,.select:focus{background:#fbfaf8;border-color:#7897a9;box-shadow:0 0 0 4px rgba(120,151,169,.15)}
+    .mood-card{background:#f5f4f1;border-color:#d7dedd;border-radius:10px;transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s ease,border-color .22s ease,background .22s ease}
+    .mood-card:hover{transform:translateY(-2px);border-color:#9bb0ba;box-shadow:0 8px 22px rgba(32,52,71,.06)}
+    .mood-card.selected{background:#e5ebeb;border-color:#7c9aa8;box-shadow:inset 0 0 0 1px #7c9aa8,0 5px 16px rgba(32,52,71,.04)}
+    .btn{transition:transform .28s cubic-bezier(.2,.8,.2,1),background .25s ease,border-color .25s ease,box-shadow .28s ease,color .25s ease}
+    .btn:active,.mini-btn:active{transform:scale(.975)}
+    .btn-outline{background:rgba(248,247,244,.76);border-color:#c3cecf}
+    .btn-outline:hover{background:#fcfbf9;border-color:#7f9ba9;box-shadow:0 7px 20px rgba(32,52,71,.06)}
+    .btn-primary{background:#304f64;box-shadow:0 8px 22px rgba(39,70,92,.17)}
+    .btn-primary:hover{background:#243f53;box-shadow:0 12px 28px rgba(39,70,92,.22)}
+    .letter-canvas{border-color:#ccd5d6;transition:background .55s ease,background-image .55s ease,box-shadow .35s ease,border-color .3s ease}
+    .paper-letter{background:linear-gradient(145deg,#f9f8f5,#ecebe6);border-color:#d2d8d6;animation:letter-float 7.5s ease-in-out infinite;will-change:transform}
+    .paper-letter:before{border-color:#d0dcdf}
+    .art-halo{background:radial-gradient(circle at 45% 42%,#f9f8f5 0,#ecefee 52%,#dfe6e5 70%,#f1f0ed 71%)}
+    .stamp{background:#efebe2e8}
+    .hero-copy{animation:soft-rise .8s cubic-bezier(.2,.75,.25,1) both}
+    .hero-art{animation:soft-rise .95s .08s cubic-bezier(.2,.75,.25,1) both}
+    .hero-sparkle{animation:sparkle-drift 6s ease-in-out infinite}
+    .sparkle-two{animation-delay:-2s}.sparkle-three{animation-delay:-4s}
+    .write-section.active,.thanks.active,.archive.active{animation:soft-rise .5s cubic-bezier(.2,.75,.25,1) both}
+    .preview-panel{box-shadow:0 16px 42px rgba(32,52,71,.055)}
+    .canvas-inner{transition:color .3s ease,transform .35s ease}
+    .canvas-title,.canvas-message,.canvas-author{transition:color .3s ease,font-size .25s ease}
+    .mini-btn{transition:background .22s ease,color .22s ease,border-color .22s ease,transform .22s ease}
+    .mini-btn:hover{transform:translateY(-1px);border-color:#9aafb8;background:#f0f2ef}
+    .modal-backdrop{transition:opacity .25s ease,visibility .25s ease}
+    .modal{animation:soft-rise .35s cubic-bezier(.2,.75,.25,1) both}
+    .toast{backdrop-filter:blur(10px)}
+    @keyframes soft-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes letter-float{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-1.7deg) translateY(-9px)}}
+    @keyframes sparkle-drift{0%,100%{transform:translate3d(0,0,0);opacity:.68}50%{transform:translate3d(3px,-8px,0);opacity:1}}
+    @media (hover:none){.step-card:hover,.mood-card:hover,.btn:hover,.mini-btn:hover{transform:none;box-shadow:initial}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+  
+
+    /* Final interface refinement: quieter surfaces, aligned branding, calmer movement. */
+    :root {
+      --ink: #213747;
+      --ink-soft: #566976;
+      --blue: #52758a;
+      --blue-dark: #2d5067;
+      --paper: #f0efec;
+      --paper-2: #e8e7e3;
+      --line: #d2d8d7;
+      --white: #f9f8f5;
+      --shadow: 0 22px 58px rgba(31, 53, 69, .09);
+      --surface: #f8f7f4;
+      --surface-raised: #fbfaf7;
+      --nav-height: 74px;
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 18px); }
+    body { background: var(--paper); color: var(--ink); line-height: 1.55; }
+    .shell { width: min(1180px, calc(100% - 48px)); }
+    #how, #writeView, #letterEditorPanel, #previewPanel, #archiveView { scroll-margin-top: calc(var(--nav-height) + 18px); }
+    .topbar { background: rgba(240,239,236,.94); border-bottom-color: rgba(190,199,199,.72); box-shadow: 0 5px 22px rgba(32,52,71,.035); }
+    .nav { min-height: var(--nav-height); gap: 14px; }
+    .brand { gap: 10px; min-width: 0; flex: 1 1 auto; }
+    .brand-mark {
+      flex: 0 0 44px; width: 44px; height: 44px; padding: 0 1px 1px 0;
+      display: flex; align-items: center; justify-content: center; gap: 0;
+      border: 1px solid #aebfc5; border-radius: 50%;
+      background: linear-gradient(145deg, #f9f8f5, #e7e9e5);
+      box-shadow: inset 0 0 0 3px rgba(255,255,255,.55), 0 4px 12px rgba(35,60,78,.05);
+      font-family: var(--serif); font-style: normal; font-weight: 500; font-size: 1.18rem;
+      letter-spacing: -.12em; line-height: 1; color: #395c73; white-space: nowrap;
+    }
+    .brand-mark > span { display: block; line-height: 1; }
+    .brand-mark .brand-amp { font-size: .68em; font-style: italic; font-weight: 400; letter-spacing: 0; margin: 0 .08em; transform: translateY(-.01em); }
+    .brand-text { font-size: 1.03rem; line-height: 1.12; min-width: 0; }
+    .brand-text small { margin-top: 5px; font-size: .55rem; letter-spacing: .15em; line-height: 1.4; }
+    .nav-actions { flex: 0 0 auto; gap: 8px; }
+    .nav-link { padding: 10px 12px; }
+    .btn { min-height: 46px; padding: 12px 20px; transition: transform .24s cubic-bezier(.2,.75,.25,1), background-color .24s ease, border-color .24s ease, box-shadow .24s ease; }
+    .btn:focus-visible, .mini-btn:focus-visible, .mood-card:focus-visible { outline: 3px solid rgba(93,139,163,.45); outline-offset: 3px; }
+    .btn-primary { background: #304f64; }
+    .btn-outline { background: rgba(249,248,245,.78); }
+    .hero { min-height: 0; padding: clamp(58px,7vw,92px) 0 clamp(70px,8vw,104px); gap: clamp(28px,5vw,64px); grid-template-columns: minmax(0,1.04fr) minmax(0,.96fr); }
+    .hero-copy { padding: 8px 0; }
+    .hero h1 { font-size: clamp(3rem,5.55vw,5.25rem); line-height: 1.02; letter-spacing: -.04em; max-width: 640px; }
+    .hero-lede { max-width: 510px; line-height: 1.82; }
+    .hero-art { min-height: clamp(400px,43vw,500px); }
+    .art-halo { width: min(440px, 88%); }
+    .paper-letter { width: min(352px, 76%); min-height: 410px; padding: 48px 34px 36px; border-radius: 3px; transform: rotate(-2deg); }
+    .stamp { right: 2%; bottom: 9%; width: 84px; height: 84px; font-size: .92rem; }
+    .section { padding: clamp(68px,7.4vw,98px) 0; }
+    .section-soft { background: #e8e9e6; }
+    .section-head { margin-bottom: clamp(32px,4vw,46px); }
+    .section-head h2 { max-width: 720px; margin-left: auto; margin-right: auto; }
+    .steps { gap: 18px; }
+    .step-card { border-radius: 15px; min-height: 208px; padding: 28px 27px; background: #f8f7f4; border-color: #d8dcda; }
+    .step-no { font-size: 1.8rem; }
+    .write-section { padding: clamp(38px,5vw,62px) 0 84px; }
+    .write-head { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: end; gap: 22px; margin-bottom: 28px; }
+    .write-head-copy { min-width: 0; }
+    .write-head h2 { letter-spacing: -.035em; line-height: 1.05; }
+    .write-head p { margin: 12px 0 0; }
+    .write-head-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px; }
+    .jump-preview-btn { display: inline-flex; }
+    .step-pills { flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+    .step-pill { border-radius: 999px; padding: 8px 12px; background: rgba(248,247,244,.58); display: inline-flex; align-items: center; gap: 7px; }
+    .step-pill b { color: #638093; font-size: .68rem; font-weight: 700; letter-spacing: .04em; }
+    .step-pill.active { background: #e2e9e9; border-color: #c7d3d5; }
+    .studio { display: grid; grid-template-columns: minmax(0,.96fr) minmax(310px,1.04fr); gap: clamp(16px,2.2vw,28px); align-items: start; }
+    .form-panel, .preview-panel { border-radius: 17px; background: #f8f7f4; border-color: #d8dcda; box-shadow: 0 12px 34px rgba(32,52,71,.045); }
+    .form-panel { padding: clamp(20px,2.6vw,32px); }
+    .panel-kicker { letter-spacing: .16em; }
+    .form-panel h3 { font-size: 1.55rem; letter-spacing: -.015em; }
+    .form-intro { margin-bottom: 24px; max-width: 62ch; }
+    .field { margin-bottom: 20px; }
+    .field-label { font-size: .82rem; gap: 12px; }
+    .field-label small { font-size: .74rem; text-align: right; }
+    .input, .textarea, .select { min-height: 48px; border-radius: 10px; background: #f2f1ee; border-color: #d1d7d6; padding: 13px 14px; color: var(--ink); }
+    .textarea { min-height: 125px; line-height: 1.7; }
+    .textarea.message-field { min-height: 188px; }
+    .textarea::placeholder, .input::placeholder { color: #87939a; opacity: 1; }
+    .helper { font-size: .75rem; line-height: 1.6; color: #71818b; }
+    .mood-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+    .mood-card { min-height: 80px; padding: 13px 14px; border-radius: 11px; background: #f4f3f0; text-align: left; }
+    .mood-card strong { font-size: .98rem; line-height: 1.25; }
+    .mood-card span { font-size: .72rem; }
+    .mood-card.selected { background: #e5ebeb; border-color: #7c9aa8; }
+    #generateBg { width: 100%; min-height: 50px; justify-content: center; white-space: normal; line-height: 1.4; }
+    #aiHelp { margin-bottom: 0; }
+    .ai-status { margin: 9px 0 0; min-height: 0; padding: 0 2px; }
+    .ai-status:empty { display: none; }
+    .ai-status:not(:empty) { padding: 9px 11px; border-radius: 9px; background: #eeefeb; }
+    .ai-status.error { background: #f6e9e6; color: #8e3d37; }
+    .ai-status.success { background: #e7f0e9; color: #2e6848; }
+    #generateBg.is-loading { cursor: progress; }
+    .loading-spinner { width: 15px; height: 15px; flex: 0 0 15px; border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; animation: blessing-spin .8s linear infinite; }
+    @keyframes blessing-spin { to { transform: rotate(360deg); } }
+    .button-row { gap: 10px; margin-top: 22px; }
+    .button-row .btn { min-width: 130px; }
+    .privacy-line { color: #637783; font-size: .78rem; line-height: 1.62; }
+    .preview-panel { position: sticky; top: calc(var(--nav-height) + 16px); padding: clamp(12px,1.6vw,20px); }
+    .preview-top { padding: 2px 3px 14px; align-items: center; }
+    .preview-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; }
+    .preview-top h3 { font-size: 1.22rem; line-height: 1.3; }
+    .preview-badge { display: inline-flex; align-items: center; width: fit-content; padding: 5px 9px; font-size: .66rem; letter-spacing: .015em; }
+    .preview-return { display: none; white-space: nowrap; }
+    .letter-canvas { height: auto; aspect-ratio: auto; min-height: clamp(500px,53vw,620px); overflow: hidden; border-radius: 5px; padding: clamp(22px,3vw,36px); background-size: cover; background-position: center; }
+    .letter-canvas:before { inset: 14px; }
+    .letter-canvas:after { inset: 22px; }
+    .canvas-inner { max-width: 410px; padding: 32px clamp(10px,1.6vw,22px); }
+    .canvas-ornament { font-size: 1.12rem; margin-bottom: 14px; }
+    .canvas-kicker { font-size: .62rem; letter-spacing: .19em; line-height: 1.6; }
+    .canvas-title { font-size: clamp(2.25rem,3.3vw,2.75rem); line-height: 1.12; overflow-wrap: anywhere; }
+    .canvas-message { font-size: 1rem; line-height: 1.82; overflow-wrap: anywhere; }
+    .canvas-author { margin-top: 20px; }
+    .preview-tools { padding: 16px 3px 2px; gap: 12px; }
+    .tool-group { gap: 7px; }
+    .tool-label { font-size: .74rem; }
+    .mini-btn { min-height: 36px; border-radius: 8px; padding: 8px 11px; background: #f2f1ee; border-color: #d4dbdb; }
+    .thanks { border-radius: 18px; background: #f8f7f4; }
+    .thanks-mark { display: grid; place-items: center; box-shadow: 0 0 0 7px rgba(220,230,230,.35); }
+    .footer { background: #ecebe7; border-color: #d7dbd8; padding: 28px 0 calc(28px + env(safe-area-inset-bottom)); }
+    .footer-inner { gap: 13px; line-height: 1.6; }
+    .toast { bottom: calc(18px + env(safe-area-inset-bottom)); border-radius: 12px; max-width: calc(100vw - 32px); text-align: center; line-height: 1.45; }
+    .modal-backdrop { padding: max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom)); overflow-y: auto; align-items: center; }
+    .modal { width: min(440px,100%); max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; border-radius: 18px; padding: clamp(22px,5vw,32px); }
+    .archive { padding: 48px 0 80px; }
+    .archive-head { align-items: flex-end; }
+    .archive-list { gap: 20px; }
+    .archive-card { padding: 13px; border-radius: 15px; }
+    .archive-card .letter-canvas { height: auto; aspect-ratio: auto; min-height: 420px; }
+    .archive-card-body { padding: 15px 5px 5px; }
+    .archive-actions .mini-btn { flex: 1 1 auto; }
+    a, button, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+    @media (min-width: 761px) and (max-width: 1000px) {
+      .shell { width: min(100% - 40px,1180px); }
+      .studio { grid-template-columns: minmax(0,.98fr) minmax(310px,1.02fr); gap: 16px; }
+      .form-panel { padding: 21px; }
+      .preview-panel { padding: 13px; }
+      .letter-canvas { min-height: 500px; }
+      .nav-link { padding-inline: 6px; }
+      .brand-text small { letter-spacing: .1em; }
+    }
+    @media (max-width: 760px) {
+      :root { --nav-height: 66px; }
+      .shell { width: min(100% - 28px,1180px); }
+      .nav { min-height: var(--nav-height); gap: 8px; }
+      .brand { gap: 8px; }
+      .brand-mark { flex-basis: 40px; width: 40px; height: 40px; font-size: 1.06rem; }
+      .brand-text { font-size: .95rem; }
+      .brand-text small { font-size: .49rem; letter-spacing: .09em; margin-top: 4px; }
+      .nav-actions { gap: 0; }
+      .nav .nav-link { display: none; }
+      .nav .btn { padding: 10px 13px; min-height: 40px; font-size: .76rem; white-space: nowrap; }
+      .hero { grid-template-columns: 1fr; gap: 6px; padding: 46px 0 55px; }
+      .hero-copy { padding: 0; }
+      .hero h1 { font-size: clamp(2.8rem,10.8vw,4.25rem); line-height: 1.02; margin-bottom: 20px; }
+      .hero-lede { font-size: .96rem; line-height: 1.75; margin-bottom: 24px; }
+      .hero-ctas { gap: 9px; }
+      .hero-ctas .btn { flex: 1 1 170px; }
+      .hero-art { min-height: 370px; margin-top: 4px; }
+      .paper-letter { min-height: 340px; width: min(300px,78%); padding: 40px 28px 30px; }
+      .paper-script { font-size: 2.45rem; line-height: 1.05; }
+      .paper-message { font-size: .94rem; line-height: 1.72; }
+      .stamp { width: 68px; height: 68px; right: 1%; bottom: 5%; font-size: .78rem; }
+      .section { padding: 58px 0; }
+      .section-head { margin-bottom: 30px; }
+      .section-head h2 { font-size: clamp(2rem,8vw,3rem); }
+      .steps { grid-template-columns: 1fr; gap: 12px; }
+      .step-card { min-height: 0; padding: 23px; }
+      .write-section { padding: 35px 0 60px; }
+      .write-head { grid-template-columns: 1fr; align-items: start; gap: 16px; margin-bottom: 22px; }
+      .write-head h2 { font-size: clamp(2.6rem,10vw,3.2rem); }
+      .write-head p { margin-top: 10px; }
+      .write-head-actions { justify-content: flex-start; }
+      .write-head-actions .btn { flex: 0 1 auto; min-height: 42px; padding: 10px 14px; }
+      .step-pills { gap: 6px; margin-bottom: 14px; }
+      .step-pill { font-size: .69rem; padding: 7px 10px; }
+      .studio { grid-template-columns: minmax(0,1fr); gap: 16px; }
+      .form-panel { padding: 22px 17px; border-radius: 15px; }
+      .preview-panel { position: static; padding: 13px; border-radius: 15px; }
+      .field-label { align-items: flex-start; }
+      .field-label small { max-width: 50%; }
+      .textarea.message-field { min-height: 175px; }
+      .mood-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+      .mood-card { min-height: 78px; padding: 11px; }
+      .mood-card strong { font-size: .92rem; }
+      .mood-card span { font-size: .69rem; }
+      #generateBg { padding-inline: 13px; }
+      .button-row .btn { flex: 1 1 145px; }
+      .letter-canvas { min-height: 470px; padding: 20px; }
+      .canvas-inner { padding: 25px 12px; }
+      .canvas-title { font-size: 2.35rem; }
+      .canvas-message { font-size: .95rem; line-height: 1.76; }
+      .preview-top { align-items: flex-start; }
+      .preview-return { display: inline-flex; flex-shrink: 0; }
+      .preview-tools { align-items: flex-start; flex-direction: row; }
+      .tool-group { flex-wrap: wrap; }
+      .archive { padding: 35px 0 60px; }
+      .archive-head { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .archive-head .btn { margin-top: 0; }
+      .archive-list { grid-template-columns: 1fr; }
+      .archive-card .letter-canvas { min-height: 390px; }
+      .thanks { margin: 24px auto 55px; padding: 38px 19px; border-radius: 15px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .modal-backdrop { align-items: flex-start; }
+      .modal { margin-block: auto; }
+    }
+    @media (max-width: 390px) {
+      .shell { width: calc(100% - 24px); }
+      .brand { gap: 6px; }
+      .brand-mark { flex-basis: 36px; width: 36px; height: 36px; font-size: .99rem; }
+      .brand-text { font-size: .82rem; letter-spacing: -.01em; }
+      .brand-text small { display: none; }
+      .nav .btn { padding: 9px 10px; font-size: .72rem; }
+      .hero h1 { font-size: clamp(2.55rem,11vw,3rem); }
+      .hero-art { min-height: 340px; }
+      .stamp { right: 0; }
+      .form-panel { padding: 19px 14px; }
+      .mood-card { padding: 10px; }
+      .canvas-title { font-size: 2.15rem; }
+      .preview-tools { gap: 10px; }
+      .tool-label { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+
   </style>
 </head>
 <body>
   <div id="demoBanner" class="demo-banner" hidden>Preview mode — letters stay in this browser until Supabase is configured. <a href="#setup" id="bannerHelp">What does this mean?</a></div>
   <header class="topbar" id="topbar">
     <div class="shell nav">
-      <a class="brand" href="#home" id="brandHome" aria-label="The Book of Blessings home"><span class="brand-mark">K<span style="font-size:.7em">&</span>K</span><span class="brand-text">The Book of Blessings<small>Kelsey & Kristine · December 10, 2026</small></span></a>
+      <a class="brand" href="#home" id="brandHome" aria-label="The Book of Blessings home"><span class="brand-mark" aria-hidden="true"><span>K</span><span class="brand-amp">&amp;</span><span>K</span></span><span class="brand-text">The Book of Blessings<small>Kelsey & Kristine · December 10, 2026</small></span></a>
       <div class="nav-actions"><a href="#how" class="nav-link" id="howLink">How it works</a><button class="btn btn-primary" id="navWrite">Write a blessing <span aria-hidden="true">↗</span></button></div>
     </div>
   </header>
@@ -52,11 +327,11 @@
     </div>
 
     <section class="write-section shell" id="writeView">
-      <div class="write-head"><div><p class="eyebrow">Your words deserve care</p><h2>Create a blessing.</h2><p>There is no perfect thing to say. Write what is true, and give it a little atmosphere of its own.</p></div><button class="btn btn-outline" id="backHome">← Back to welcome</button></div>
-      <div class="step-pills"><span class="step-pill active">1 · Choose a feeling</span><span class="step-pill active">2 · Write</span><span class="step-pill active">3 · Preview & send</span></div>
+      <div class="write-head"><div class="write-head-copy"><p class="eyebrow">Your words deserve care</p><h2 id="writeTitle" tabindex="-1">Create a blessing.</h2><p>There is no perfect thing to say. Write what is true, and give it a little atmosphere of its own.</p></div><div class="write-head-actions"><button class="btn btn-outline jump-preview-btn" id="jumpToPreview" type="button">See live preview <span aria-hidden="true">↓</span></button><button class="btn btn-quiet" id="backHome" type="button">← Back to welcome</button></div></div>
+      <div class="step-pills" aria-label="Letter creation steps"><span class="step-pill"><b>01</b> Design</span><span class="step-pill"><b>02</b> Write</span><span class="step-pill"><b>03</b> Preview &amp; send</span></div>
       <div class="studio">
-        <div class="form-panel">
-          <p class="panel-kicker">The design</p><h3>How should your letter feel?</h3><p class="form-intro">Describe the atmosphere you imagine. AI artwork will be available once the image-generation service is connected; for now, you can explore the built-in designs.</p>
+        <div class="form-panel" id="letterEditorPanel">
+          <p class="panel-kicker">The design</p><h3>How should your letter feel?</h3><p class="form-intro">Describe the atmosphere you imagine, or begin with one of the curated designs. Your letter preview updates as you write, and the AI can create original artwork just for your message.</p>
           <label class="field"><span class="field-label">Describe your background <small>Be as imaginative as you like</small></span><textarea class="textarea" id="designPrompt" maxlength="450" placeholder="A quiet evening beneath the stars, deep navy blue and silver, peaceful and full of hope…"></textarea><span class="helper">Tip: mention colors, textures, nature, season, or the feeling you want to leave behind.</span></label>
           <div class="field"><span class="field-label">Or begin with a feeling</span><div class="mood-grid" id="moodGrid">
             <button type="button" class="mood-card selected" data-theme="blue"><strong>Quiet & timeless</strong><span>Soft blue, linen, silver</span></button>
@@ -67,7 +342,7 @@
             <button type="button" class="mood-card" data-theme="coast"><strong>Open & peaceful</strong><span>Sea glass, pale horizon</span></button>
           </div></div>
           <button class="btn btn-outline" id="generateBg" style="width:100%"><span aria-hidden="true">✧</span> Generate a unique background with AI</button>
-          <p class="helper" id="aiHelp">AI generation isn't connected yet. You can still test the built-in designs, editor, and preview.</p>
+          <p class="helper" id="aiHelp">Your custom background will appear in the preview when it is ready. Built-in designs are always available as a fallback.</p><p class="status ai-status" id="aiStatus" data-status-class="ai-status" role="status" aria-live="polite" aria-atomic="true"></p>
           <div style="border-top:1px solid #e6e9e5;margin:25px 0 24px"></div>
           <p class="panel-kicker">The message</p><h3>What would you like them to remember?</h3>
           <label class="field"><span class="field-label">Your name <small>Optional</small></span><input id="authorName" class="input" maxlength="80" placeholder="How should they know who wrote this?"></label>
@@ -78,7 +353,7 @@
           <div class="button-row"><button class="btn btn-primary" id="submitLetter">Send this blessing <span aria-hidden="true">↗</span></button><button class="btn btn-quiet" id="resetLetter">Start over</button></div>
           <p class="status" id="submitStatus" role="status" aria-live="polite"></p>
         </div>
-        <aside class="preview-panel"><div class="preview-top"><h3>Your letter, as they will read it</h3><span class="preview-badge">Live preview</span></div>
+        <aside class="preview-panel" id="previewPanel"><div class="preview-top"><div class="preview-heading"><h3>Your letter, as they will read it</h3><span class="preview-badge">Live preview</span></div><button class="mini-btn preview-return" id="returnToEditor" type="button">↑ Back to editing</button></div>
           <div class="letter-canvas theme-blue" id="letterCanvas"><div class="canvas-vines" id="canvasVines"><svg class="vines-svg" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true"><path d="M0 110 C80 65 65 22 145 0 M400 390 C300 420 355 480 270 500" stroke="var(--paper-accent)" stroke-width="1.2" fill="none" opacity=".55"/><path d="M20 130 C58 130 65 95 54 75 C28 89 22 109 20 130 M69 73 C93 77 111 59 112 36 C89 43 75 55 69 73 M355 395 C327 380 319 353 331 334 C353 352 360 375 355 395 M311 449 C282 448 264 426 265 403 C291 413 306 429 311 449" fill="none" stroke="var(--paper-accent)" stroke-width="1.1" opacity=".65"/></svg></div>
             <div class="canvas-inner" id="canvasInner"><div class="canvas-ornament">✧ ❧ ✧</div><div class="canvas-kicker">A blessing for a lifetime</div><div class="canvas-title" id="canvasTitle">Dear Kelsey & Kristine</div><div class="canvas-divider"></div><p class="canvas-message empty" id="canvasMessage">Your words will appear here as you write.</p><div class="canvas-author" id="canvasAuthor">With love</div><div class="canvas-footer">DECEMBER 10, 2026</div></div>
           </div>
@@ -112,14 +387,16 @@
       parchment:{accent:'#a18a66',bg:'radial-gradient(ellipse at 50% 0%,#fffdf6 0%,transparent 46%),linear-gradient(140deg,#f3e8d4,#fcf8ee 48%,#eadcc5)',ink:'#59452e',label:'Classic & heartfelt'},
       coast:{accent:'#679eab',bg:'radial-gradient(ellipse at 55% 100%,#c5e0df 0,transparent 48%),linear-gradient(180deg,#edf3f2 0%,#f9f7f1 58%,#d9e9e8 100%)',ink:'#315a68',label:'Open & peaceful'}
     };
-    function setStatus(id, text, kind=''){ const el=$(id); if(el){el.textContent=text;el.className='status'+(kind?' '+kind:'');} }
+    function setStatus(id, text, kind=''){ const el=$(id); if(el){const persistentClass=el.dataset.statusClass||'';el.textContent=text;el.className='status'+(persistentClass?' '+persistentClass:'')+(kind?' '+kind:'');} }
+    function resetViewScroll(){ const root=document.documentElement; const old=root.style.scrollBehavior; root.style.scrollBehavior='auto'; window.scrollTo(0,0); requestAnimationFrame(()=>{root.style.scrollBehavior=old;}); }
+    function scrollToSection(id){ const target=$(id); if(!target)return; target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}); }
     function toast(text){const el=$('toast');el.textContent=text;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2800)}
     function esc(s){return String(s??'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
     function demoMode(){return !hasSupabase}
     function updateBanner(){ $('demoBanner').hidden=!demoMode(); $('aiHelp').textContent=cfg.aiWorkerUrl?'AI image generation is connected. Each generation uses the configured Cloudflare Worker.':'AI generation is not connected yet. Built-in designs are ready to use while you configure the AI worker.'; if(!hasSupabase) $('aiHelp').textContent+=' Demo letters are stored only in this browser and will not reach the couple.'; }
-    function goWrite(){ $('homeView').style.display='none';$('writeView').classList.add('active');$('thanksView').classList.remove('active');$('archiveView').classList.remove('active');window.scrollTo({top:0,behavior:'smooth'}); updatePreview(); }
-    function goHome(){ $('homeView').style.display='block';$('writeView').classList.remove('active');$('thanksView').classList.remove('active');$('archiveView').classList.remove('active');$('footer').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'}); }
-    function goThanks(name){ $('homeView').style.display='none';$('writeView').classList.remove('active');$('thanksView').classList.add('active');$('archiveView').classList.remove('active');$('thanksCopy').textContent=`Thank you${name?', '+name:''} for leaving Kelsey and Kristine something meaningful to return to. Some gifts are held in the hands; others are carried in the heart.`;window.scrollTo({top:0,behavior:'smooth'}); }
+    function goWrite(){ $('homeView').style.display='none';$('writeView').classList.add('active');$('thanksView').classList.remove('active');$('archiveView').classList.remove('active');resetViewScroll(); updatePreview(); }
+    function goHome(){ $('homeView').style.display='block';$('writeView').classList.remove('active');$('thanksView').classList.remove('active');$('archiveView').classList.remove('active');$('footer').classList.remove('hidden');resetViewScroll(); }
+    function goThanks(name){ $('homeView').style.display='none';$('writeView').classList.remove('active');$('thanksView').classList.add('active');$('archiveView').classList.remove('active');$('thanksCopy').textContent=`Thank you${name?', '+name:''} for leaving Kelsey and Kristine something meaningful to return to. Some gifts are held in the hands; others are carried in the heart.`;resetViewScroll(); }
     function setTheme(key){ if(!themeStyles[key]) key='blue';state.theme=key;document.querySelectorAll('.mood-card').forEach(b=>b.classList.toggle('selected',b.dataset.theme===key));state.generatedDataUrl='';state.generatedBlob=null;const canvas=$('letterCanvas');const t=themeStyles[key];canvas.style.background=t.bg;canvas.style.setProperty('--paper-accent',t.accent);canvas.style.setProperty('--letter-color',currentInk(t));canvas.style.backgroundSize='cover';canvas.style.backgroundPosition='center';canvas.classList.toggle('theme-night',key==='night');$('canvasVines').style.opacity=key==='night'?'.3':'.72';$('canvasVines').innerHTML = key==='night' ? '<svg class="vines-svg" viewBox="0 0 400 500" aria-hidden="true"><g fill="#fff3ce" opacity=".78"><circle cx="45" cy="78" r="1.6"/><circle cx="85" cy="46" r="1"/><circle cx="335" cy="92" r="1.5"/><circle cx="362" cy="178" r="1"/><circle cx="29" cy="340" r="1.3"/><circle cx="353" cy="388" r="1.4"/><circle cx="76" cy="421" r="1"/></g><path d="M0 105 Q45 82 80 36 M400 395 Q351 420 315 470" fill="none" stroke="#c7b4eb" stroke-width="1" opacity=".65"/></svg>' : '<svg class="vines-svg" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true"><path d="M0 110 C80 65 65 22 145 0 M400 390 C300 420 355 480 270 500" stroke="var(--paper-accent)" stroke-width="1.2" fill="none" opacity=".55"/><path d="M20 130 C58 130 65 95 54 75 C28 89 22 109 20 130 M69 73 C93 77 111 59 112 36 C89 43 75 55 69 73 M355 395 C327 380 319 353 331 334 C353 352 360 375 355 395 M311 449 C282 448 264 426 265 403 C291 413 306 429 311 449" fill="none" stroke="var(--paper-accent)" stroke-width="1.1" opacity=".65"/></svg>'; updatePreview(); }
     function currentInk(t=themeStyles[state.theme]){const v=$('inkColor')?.value||'dark';return v==='white'?'#fffaf0':v==='soft'?(state.theme==='night'?'#e2deef':'#547083'):t.ink;}
     function updatePreview(){ const name=$('authorName').value.trim();const msg=$('messageText').value;const font=$('fontStyle').value; const canvas=$('letterCanvas');const inner=$('canvasInner'); const theme=themeStyles[state.theme];
@@ -132,19 +409,61 @@
       if(state.generatedDataUrl){canvas.style.backgroundImage=`url("${state.generatedDataUrl}")`;canvas.style.backgroundColor=theme.bg;} else {canvas.style.backgroundImage='';canvas.style.background=theme.bg;}
     }
     function makeAiPrompt(){const desc=$('designPrompt').value.trim();const t=themeStyles[state.theme];const palette=state.theme==='night'?'deep midnight blue, moonlight, tiny silver stars':state.theme==='floral'?'ivory paper, delicate pale blue and silver watercolor botanical details':state.theme==='garden'?'soft sage green, fine leaves, warm morning light':state.theme==='parchment'?'warm ivory handmade paper, elegant antique gold line details':state.theme==='coast'?'pale sea glass blue, soft waves and an airy horizon':'pale blue and silver, fine botanical linework, soft linen paper';return `Create an elegant vertical 4:5 wedding letter background only, with no text, no letters, no numbers, no watermark. ${desc?`Art direction from the user: ${desc}.`:''} Palette and mood: ${palette}. Refined editorial wedding stationery, delicate edges and corners, soft watercolor textures, restrained ornament framing the edges, large quiet light center with very low visual detail so dark text remains perfectly readable. Luxury but understated, tasteful and print-like, serene, high quality. Avoid people, faces, logos, typography, dense patterns, busy center, hard contrast, clutter. It must function as a clean background for a personal letter.`.slice(0,2048);}
-    async function generateBackground(){const url=(cfg.aiWorkerUrl||'').trim();if(!url){setStatus('submitStatus','AI worker isn’t connected yet. Use one of the six elegant built-in designs, or follow the setup guide to connect image generation.','error');toast('Choose a built-in design for now.');return;}const btn=$('generateBg');btn.disabled=true;btn.textContent='Creating your artwork…';setStatus('submitStatus','Creating a unique background. This can take a little while…');try{const resp=await fetch(url.replace(/\/$/,'')+'/generate-background',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:makeAiPrompt()})});if(!resp.ok){let reason='The image service could not finish. Please try again.';try{const j=await resp.json();if(j.error)reason=j.error;}catch{}throw new Error(reason);}const blob=await resp.blob();if(!blob.type.startsWith('image/'))throw new Error('The image service returned an unexpected response.');if(blob.size>4*1024*1024)throw new Error('The generated image is larger than 4 MB. Try a simpler description.');state.generatedBlob=blob;state.generatedDataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(blob);});updatePreview();setStatus('submitStatus','Your new background is ready. Your letter will sit on top, keeping every word crisp and readable.','success');toast('Your artwork is ready.');}catch(err){setStatus('submitStatus',err.message||'Could not generate an image. Try a built-in theme.','error');}finally{btn.disabled=false;btn.innerHTML='<span aria-hidden="true">✧</span> Generate a unique background with AI';}}
+    async function optimizeArtwork(blob){
+      // Downscale and re-encode to keep uploads and local demo storage manageable.
+      try {
+        if (!('createImageBitmap' in window)) return blob;
+        const bitmap = await createImageBitmap(blob);
+        const maxWidth = 1000;
+        const scale = Math.min(1, maxWidth / bitmap.width);
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+        canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+        bitmap.close?.();
+        const optimized = await new Promise(resolve => canvas.toBlob(resolve, 'image/webp', .84));
+        return optimized && optimized.size < blob.size ? optimized : blob;
+      } catch { return blob; }
+    }
+    async function generateBackground(){
+      const url=(cfg.aiWorkerUrl||'').trim();
+      if(!url){setStatus('aiStatus','AI generation is not connected yet. Choose one of the built-in designs for now.','error');toast('Choose a built-in design for now.');return;}
+      const btn=$('generateBg');
+      btn.disabled=true;
+      btn.classList.add('is-loading');
+      btn.setAttribute('aria-busy','true');
+      btn.innerHTML='<span class="loading-spinner" aria-hidden="true"></span><span>Creating your artwork…</span>';
+      setStatus('aiStatus','Creating your background. This can take several seconds; you can keep editing your message while it works.');
+      try{
+        const resp=await fetch(url.replace(/\/$/,'')+'/generate-background',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:makeAiPrompt()})});
+        if(!resp.ok){let reason='The image service could not finish. Please try again.';try{const j=await resp.json();if(j.error)reason=j.error;}catch{}throw new Error(reason);}
+        const responseBlob=await resp.blob();
+        if(!responseBlob.type.startsWith('image/'))throw new Error('The image service returned an unexpected response.');
+        const blob=await optimizeArtwork(responseBlob);
+        if(blob.size>4*1024*1024)throw new Error('The generated image is larger than 4 MB. Try a simpler description.');
+        state.generatedBlob=blob;
+        state.generatedDataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(blob);});
+        updatePreview();
+        setStatus('aiStatus','Your new background is ready. Your words remain crisp and readable on top.','success');
+        toast('Your artwork is ready.');
+      }catch(err){setStatus('aiStatus',err.message||'Could not generate an image. Try a built-in design.','error');}
+      finally{btn.disabled=false;btn.classList.remove('is-loading');btn.removeAttribute('aria-busy');btn.innerHTML='<span aria-hidden="true">✧</span> Generate a unique background with AI';}
+    }
     function resetForm(){ $('designPrompt').value='';$('authorName').value='';$('messageText').value='';$('fontStyle').value='serif';$('textAlign').value='center';$('inkColor').value='dark';$('privateConsent').checked=true;state.generatedBlob=null;state.generatedDataUrl='';state.zoom=1;state.border=true;$('borderFine').classList.add('selected');$('borderNone').classList.remove('selected');setTheme('blue');setStatus('submitStatus','');updatePreview(); }
     function demoSave(payload){const key='kk-blessings-demo-v1';const rows=JSON.parse(localStorage.getItem(key)||'[]');rows.push({...payload,id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),created_at:new Date().toISOString(),_demo:true,artwork_data:state.generatedDataUrl||''});localStorage.setItem(key,JSON.stringify(rows));return rows[rows.length-1];}
-    async function submitLetter(){const author=$('authorName').value.trim();const message=$('messageText').value.trim();if(!message){setStatus('submitStatus','Please write your letter first.','error');$('messageText').focus();return;}if(message.length<12){setStatus('submitStatus','Could you add a little more? A full sentence will make the keepsake more meaningful.','error');$('messageText').focus();return;}if(!$('privateConsent').checked){setStatus('submitStatus','Please confirm the privacy note before sending.','error');return;}const btn=$('submitLetter');btn.disabled=true;btn.textContent='Saving your keepsake…';setStatus('submitStatus','');const payload={author_name:author||null,message,design_prompt:$('designPrompt').value.trim().slice(0,450)||null,design_theme:state.theme,font_style:$('fontStyle').value,text_alignment:$('textAlign').value,text_color:$('inkColor').value,artwork_path:null,moderation_status:'pending',is_featured:false};try{if(supabase){let artworkPath=null;if(state.generatedBlob){const ext=state.generatedBlob.type==='image/png'?'png':'jpg';artworkPath=`${crypto.randomUUID?crypto.randomUUID():Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;const {error:uploadError}=await supabase.storage.from('blessing-artwork').upload(artworkPath,state.generatedBlob,{contentType:state.generatedBlob.type||'image/jpeg',upsert:false});if(uploadError)throw new Error('Background upload failed: '+uploadError.message);payload.artwork_path=artworkPath;}const {error}=await supabase.from('blessings').insert(payload);if(error){if(artworkPath){/* Private unreferenced artwork can be removed later by an admin. */}throw new Error('Could not save this letter: '+error.message);} }else{demoSave(payload);}
+    async function submitLetter(){const author=$('authorName').value.trim();const message=$('messageText').value.trim();if(!message){setStatus('submitStatus','Please write your letter first.','error');$('messageText').focus();return;}if(message.length<12){setStatus('submitStatus','Could you add a little more? A full sentence will make the keepsake more meaningful.','error');$('messageText').focus();return;}if(!$('privateConsent').checked){setStatus('submitStatus','Please confirm the privacy note before sending.','error');return;}const btn=$('submitLetter');btn.disabled=true;btn.textContent='Saving your keepsake…';setStatus('submitStatus','');const payload={author_name:author||null,message,design_prompt:$('designPrompt').value.trim().slice(0,450)||null,design_theme:state.theme,font_style:$('fontStyle').value,text_alignment:$('textAlign').value,text_color:$('inkColor').value,artwork_path:null,moderation_status:'pending',is_featured:false};try{if(supabase){let artworkPath=null;if(state.generatedBlob){const ext=state.generatedBlob.type==='image/png'?'png':state.generatedBlob.type==='image/webp'?'webp':'jpg';artworkPath=`${crypto.randomUUID?crypto.randomUUID():Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;const {error:uploadError}=await supabase.storage.from('blessing-artwork').upload(artworkPath,state.generatedBlob,{contentType:state.generatedBlob.type||'image/jpeg',upsert:false});if(uploadError)throw new Error('Background upload failed: '+uploadError.message);payload.artwork_path=artworkPath;}const {error}=await supabase.from('blessings').insert(payload);if(error){if(artworkPath){/* Private unreferenced artwork can be removed later by an admin. */}throw new Error('Could not save this letter: '+error.message);} }else{demoSave(payload);}
         setStatus('submitStatus','');goThanks(author);
       }catch(err){setStatus('submitStatus',err.message||'Something went wrong. Please try again.','error');}finally{btn.disabled=false;btn.innerHTML='Send this blessing <span aria-hidden="true">↗</span>';}}
     function renderArchive(rows){const list=$('archiveList');if(!rows.length){list.innerHTML='<div class="archive-empty"><p class="serif" style="font-size:1.5rem">The collection is waiting for its first letter.</p><p>When guests submit their blessings, they will appear here.</p></div>';return;}list.innerHTML='';rows.forEach(row=>{const card=document.createElement('article');card.className='archive-card';const art=row.artwork_url||row.artwork_data||'';const theme=themeStyles[row.design_theme]||themeStyles.blue;const background=art?`url("${art}")`:theme.bg;const ink=row.text_color==='white'?'#fffaf0':row.text_color==='soft'?'#547083':theme.ink;card.innerHTML=`<div class="letter-canvas" style="background:${theme.bg};background-size:cover;--paper-accent:${theme.accent};--letter-color:${ink}"><div class="canvas-vines"></div><div class="canvas-inner" style="text-align:${row.text_alignment==='left'?'left':'center'};color:${ink}"><div class="canvas-ornament">✧ ❧ ✧</div><div class="canvas-kicker">A blessing for a lifetime</div><div class="canvas-title" style="color:${theme.accent}">Dear Kelsey & Kristine</div><div class="canvas-divider" style="margin-left:${row.text_alignment==='left'?'0':'auto'};margin-right:${row.text_alignment==='left'?'auto':'auto'}"></div><p class="canvas-message" style="font-family:${row.font_style==='modern'?'var(--sans)':row.font_style==='script'?'var(--script)':'var(--serif)'};text-align:${row.text_alignment==='left'?'left':'center'}">${esc(row.message)}</p><div class="canvas-author">${esc(row.author_name?'— '+row.author_name:'With love')}</div><div class="canvas-footer">DECEMBER 10, 2026</div></div></div><div class="archive-card-body"><h3>${esc(row.author_name||'An unnamed blessing')}</h3><p>${new Date(row.created_at).toLocaleString(undefined,{dateStyle:'medium',timeStyle:'short'})} · ${esc(theme.label)}</p><div class="archive-actions"><button class="mini-btn" data-action="download" data-id="${esc(row.id)}">Save letter as image</button><button class="mini-btn" data-action="approve" data-id="${esc(row.id)}">Mark as reviewed</button></div></div>`;
         const c=card.querySelector('.letter-canvas');if(art)c.style.backgroundImage=`url("${art}")`;c.style.setProperty('--paper-accent',theme.accent);list.appendChild(card);});}
-    async function openArchive(){if(!supabase){$('homeView').style.display='none';$('writeView').classList.remove('active');$('thanksView').classList.remove('active');$('archiveView').classList.add('active');$('footer').classList.add('hidden');window.scrollTo({top:0,behavior:'smooth'});const rows=JSON.parse(localStorage.getItem('kk-blessings-demo-v1')||'[]').sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));renderArchive(rows);setStatus('archiveStatus','DEMO ONLY — these letters are saved only in this browser and this local archive is not password protected. Connect Supabase before sharing your wedding QR code.', 'error');return;} $('adminEmail').disabled=false;$('adminPassword').disabled=false;$('archiveLogin').querySelector('[type="submit"]').disabled=false;const {data:{session}}=await supabase.auth.getSession();if(session){await showArchive();}else{$('archiveModal').classList.add('show');setStatus('loginStatus','');$('adminEmail').value='';$('adminPassword').value='';}}
-    async function showArchive(){ $('archiveModal').classList.remove('show');$('homeView').style.display='none';$('writeView').classList.remove('active');$('thanksView').classList.remove('active');$('archiveView').classList.add('active');$('footer').classList.add('hidden');window.scrollTo({top:0,behavior:'smooth'});setStatus('archiveStatus','Loading your letters…');try{const {data:rows,error}=await supabase.from('blessings').select('*').order('created_at',{ascending:false});if(error)throw error;for(const r of rows){if(r.artwork_path){const {data,error:signedError}=await supabase.storage.from('blessing-artwork').createSignedUrl(r.artwork_path,3600);if(!signedError&&data?.signedUrl)r.artwork_url=data.signedUrl;}}renderArchive(rows);setStatus('archiveStatus',`${rows.length} blessing${rows.length===1?'':'s'} in the collection. Artwork links are temporary and will refresh when you reopen the archive.`,'success');}catch(err){setStatus('archiveStatus','Unable to load archive. Confirm this signed-in user is listed in public.admin_users. '+(err.message||''),'error');$('archiveList').innerHTML='';}}
+    async function openArchive(){if(!supabase){$('homeView').style.display='none';$('writeView').classList.remove('active');$('thanksView').classList.remove('active');$('archiveView').classList.add('active');$('footer').classList.add('hidden');resetViewScroll();const rows=JSON.parse(localStorage.getItem('kk-blessings-demo-v1')||'[]').sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));renderArchive(rows);setStatus('archiveStatus','DEMO ONLY — these letters are saved only in this browser and this local archive is not password protected. Connect Supabase before sharing your wedding QR code.', 'error');return;} $('adminEmail').disabled=false;$('adminPassword').disabled=false;$('archiveLogin').querySelector('[type="submit"]').disabled=false;const {data:{session}}=await supabase.auth.getSession();if(session){await showArchive();}else{$('archiveModal').classList.add('show');setStatus('loginStatus','');$('adminEmail').value='';$('adminPassword').value='';requestAnimationFrame(()=>$('adminEmail').focus({preventScroll:true}));}}
+    async function showArchive(){ $('archiveModal').classList.remove('show');$('homeView').style.display='none';$('writeView').classList.remove('active');$('thanksView').classList.remove('active');$('archiveView').classList.add('active');$('footer').classList.add('hidden');resetViewScroll();setStatus('archiveStatus','Loading your letters…');try{const {data:rows,error}=await supabase.from('blessings').select('*').order('created_at',{ascending:false});if(error)throw error;for(const r of rows){if(r.artwork_path){const {data,error:signedError}=await supabase.storage.from('blessing-artwork').createSignedUrl(r.artwork_path,3600);if(!signedError&&data?.signedUrl)r.artwork_url=data.signedUrl;}}renderArchive(rows);setStatus('archiveStatus',`${rows.length} blessing${rows.length===1?'':'s'} in the collection. Artwork links are temporary and will refresh when you reopen the archive.`,'success');}catch(err){setStatus('archiveStatus','Unable to load archive. Confirm this signed-in user is listed in public.admin_users. '+(err.message||''),'error');$('archiveList').innerHTML='';}}
     async function exportCard(button){const card=button.closest('.archive-card');const target=card?.querySelector('.letter-canvas');if(!target)return;if(!window.html2canvas){await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';s.onload=resolve;s.onerror=reject;document.head.appendChild(s);});}try{const c=await html2canvas(target,{scale:2,useCORS:true,backgroundColor:null});const a=document.createElement('a');a.href=c.toDataURL('image/png');a.download='blessing-letter.png';a.click();}catch{toast('Could not export this letter on this device. Try taking a screenshot.');}}
     // Navigation and editor listeners
-    ['navWrite','heroWrite'].forEach(id=>$(id).addEventListener('click',goWrite));$('backHome').addEventListener('click',goHome);$('footerHome').addEventListener('click',e=>{e.preventDefault();goHome();});$('howLink').addEventListener('click',()=>{if($('homeView').style.display==='none')goHome();});$('brandHome').addEventListener('click',e=>{e.preventDefault();goHome();});$('bannerHelp').addEventListener('click',e=>{e.preventDefault();alert('Demo mode saves test letters only in this browser. To collect real guest letters, follow README.md to create a Supabase project and add its project URL and publishable key to config.js. Never put a service_role key in the website.');});document.querySelectorAll('.mood-card').forEach(btn=>btn.addEventListener('click',()=>setTheme(btn.dataset.theme)));['authorName','messageText','fontStyle','textAlign','inkColor'].forEach(id=>$(id).addEventListener('input',updatePreview));$('designPrompt').addEventListener('input',()=>{state.generatedDataUrl='';state.generatedBlob=null;});$('generateBg').addEventListener('click',generateBackground);$('submitLetter').addEventListener('click',submitLetter);$('resetLetter').addEventListener('click',resetForm);$('writeAnother').addEventListener('click',()=>{resetForm();goWrite();});$('thanksHome').addEventListener('click',goHome);$('borderFine').addEventListener('click',()=>{state.border=true;$('borderFine').classList.add('selected');$('borderNone').classList.remove('selected');updatePreview();});$('borderNone').addEventListener('click',()=>{state.border=false;$('borderNone').classList.add('selected');$('borderFine').classList.remove('selected');updatePreview();});$('zoomIn').addEventListener('click',()=>{state.zoom=Math.min(1.25,state.zoom+.05);updatePreview();});$('zoomOut').addEventListener('click',()=>{state.zoom=Math.max(.8,state.zoom-.05);updatePreview();});$('archiveLink').addEventListener('click',e=>{e.preventDefault();openArchive();});$('closeArchive').addEventListener('click',()=>$('archiveModal').classList.remove('show'));$('archiveModal').addEventListener('click',e=>{if(e.target===$('archiveModal'))$('archiveModal').classList.remove('show');});$('archiveLogin').addEventListener('submit',async e=>{e.preventDefault();if(!supabase)return;const b=e.submitter;b.disabled=true;b.textContent='Signing in…';setStatus('loginStatus','');try{const {error}=await supabase.auth.signInWithPassword({email:$('adminEmail').value.trim(),password:$('adminPassword').value});if(error)throw error;await showArchive();}catch(err){setStatus('loginStatus',err.message||'Could not sign in.','error');}finally{b.disabled=false;b.textContent='Sign in';}});$('archiveSignOut').addEventListener('click',async()=>{if(supabase)await supabase.auth.signOut();goHome();});$('archiveList').addEventListener('click',async e=>{const btn=e.target.closest('button[data-action]');if(!btn)return;if(btn.dataset.action==='download'){exportCard(btn);return;}if(btn.dataset.action==='approve'){btn.disabled=true;const rowId=btn.dataset.id;if(!supabase){const key='kk-blessings-demo-v1';const rows=JSON.parse(localStorage.getItem(key)||'[]');const row=rows.find(x=>x.id===rowId);if(row)row.moderation_status='reviewed';localStorage.setItem(key,JSON.stringify(rows));btn.textContent='Reviewed (demo)';toast('Marked as reviewed in this browser only.');return;}const {error}=await supabase.from('blessings').update({moderation_status:'reviewed'}).eq('id',rowId);if(error){toast('Review status was not updated; check the admin policy.');btn.disabled=false;}else{btn.textContent='Reviewed';toast('Marked as reviewed.');}}});
+    $('jumpToPreview').addEventListener('click',()=>scrollToSection('previewPanel'));$('returnToEditor').addEventListener('click',()=>scrollToSection('letterEditorPanel'));
+    ['navWrite','heroWrite'].forEach(id=>$(id).addEventListener('click',goWrite));$('backHome').addEventListener('click',goHome);$('footerHome').addEventListener('click',e=>{e.preventDefault();goHome();});$('howLink').addEventListener('click',()=>{if($('homeView').style.display==='none')goHome();});$('brandHome').addEventListener('click',e=>{e.preventDefault();goHome();});$('bannerHelp').addEventListener('click',e=>{e.preventDefault();alert('Demo mode saves test letters only in this browser. To collect real guest letters, follow README.md to create a Supabase project and add its project URL and publishable key to config.js. Never put a service_role key in the website.');});document.querySelectorAll('.mood-card').forEach(btn=>btn.addEventListener('click',()=>setTheme(btn.dataset.theme)));['authorName','messageText','fontStyle','textAlign','inkColor'].forEach(id=>$(id).addEventListener('input',updatePreview));$('designPrompt').addEventListener('input',()=>{state.generatedDataUrl='';state.generatedBlob=null;updatePreview();});$('generateBg').addEventListener('click',generateBackground);$('submitLetter').addEventListener('click',submitLetter);$('resetLetter').addEventListener('click',resetForm);$('writeAnother').addEventListener('click',()=>{resetForm();goWrite();});$('thanksHome').addEventListener('click',goHome);$('borderFine').addEventListener('click',()=>{state.border=true;$('borderFine').classList.add('selected');$('borderNone').classList.remove('selected');updatePreview();});$('borderNone').addEventListener('click',()=>{state.border=false;$('borderNone').classList.add('selected');$('borderFine').classList.remove('selected');updatePreview();});$('zoomIn').addEventListener('click',()=>{state.zoom=Math.min(1.25,state.zoom+.05);updatePreview();});$('zoomOut').addEventListener('click',()=>{state.zoom=Math.max(.8,state.zoom-.05);updatePreview();});$('archiveLink').addEventListener('click',e=>{e.preventDefault();openArchive();});$('closeArchive').addEventListener('click',()=>{$('archiveModal').classList.remove('show');$('archiveLink').focus({preventScroll:true});});$('archiveModal').addEventListener('click',e=>{if(e.target===$('archiveModal')){$('archiveModal').classList.remove('show');$('archiveLink').focus({preventScroll:true});}});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('archiveModal').classList.contains('show')){$('archiveModal').classList.remove('show');$('archiveLink').focus({preventScroll:true});}});$('archiveLogin').addEventListener('submit',async e=>{e.preventDefault();if(!supabase)return;const b=e.submitter;b.disabled=true;b.textContent='Signing in…';setStatus('loginStatus','');try{const {error}=await supabase.auth.signInWithPassword({email:$('adminEmail').value.trim(),password:$('adminPassword').value});if(error)throw error;await showArchive();}catch(err){setStatus('loginStatus',err.message||'Could not sign in.','error');}finally{b.disabled=false;b.textContent='Sign in';}});$('archiveSignOut').addEventListener('click',async()=>{if(supabase)await supabase.auth.signOut();goHome();});$('archiveList').addEventListener('click',async e=>{const btn=e.target.closest('button[data-action]');if(!btn)return;if(btn.dataset.action==='download'){exportCard(btn);return;}if(btn.dataset.action==='approve'){btn.disabled=true;const rowId=btn.dataset.id;if(!supabase){const key='kk-blessings-demo-v1';const rows=JSON.parse(localStorage.getItem(key)||'[]');const row=rows.find(x=>x.id===rowId);if(row)row.moderation_status='reviewed';localStorage.setItem(key,JSON.stringify(rows));btn.textContent='Reviewed (demo)';toast('Marked as reviewed in this browser only.');return;}const {error}=await supabase.from('blessings').update({moderation_status:'reviewed'}).eq('id',rowId);if(error){toast('Review status was not updated; check the admin policy.');btn.disabled=false;}else{btn.textContent='Reviewed';toast('Marked as reviewed.');}}});
     // Handles direct archive route (#archive) and keeps the public guest path clean.
     window.addEventListener('hashchange',()=>{if(location.hash==='#archive')openArchive();});
     updateBanner();setTheme('blue');updatePreview();if(location.hash==='#archive')openArchive();
